@@ -3,57 +3,596 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Loan Navigator Privacy Policy</title>
+
+  <title>Loan Navigator | Smarter Loan and Debt Planning</title>
+
+  <meta
+    name="description"
+    content="Loan Navigator helps users estimate payments, compare loan scenarios, plan faster payoffs, and track debt."
+  />
+
+  <style>
+    :root {
+      --navy: #061735;
+      --navy-light: #0c2855;
+      --blue: #4da3ff;
+      --blue-light: #8cc6ff;
+      --white: #ffffff;
+      --off-white: #f5f8fc;
+      --text: #dce9f8;
+      --muted: #a9bdd3;
+      --border: rgba(255, 255, 255, 0.14);
+      --card: rgba(255, 255, 255, 0.07);
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+        sans-serif;
+      background:
+        radial-gradient(circle at top right, #17477f 0%, transparent 35%),
+        linear-gradient(160deg, #061735 0%, #081c3b 55%, #041126 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6, 23, 53, 0.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(14px);
+    }
+
+    nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: 0.2px;
+    }
+
+    .brand-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, var(--blue), #246fce);
+      box-shadow: 0 10px 24px rgba(77, 163, 255, 0.28);
+      font-size: 1.35rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .hero {
+      padding: 110px 0 90px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 14px;
+      border: 1px solid rgba(77, 163, 255, 0.38);
+      border-radius: 999px;
+      background: rgba(77, 163, 255, 0.1);
+      color: var(--blue-light);
+      font-size: 0.83rem;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0 auto 22px;
+      color: var(--white);
+      font-size: clamp(2.7rem, 7vw, 5.2rem);
+      line-height: 1.04;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 22px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 750;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .button-primary {
+      background: linear-gradient(145deg, var(--blue), #2476d5);
+      color: var(--white);
+      box-shadow: 0 12px 28px rgba(77, 163, 255, 0.25);
+    }
+
+    .button-secondary {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--white);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    section {
+      padding: 82px 0;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 12px;
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      background: rgba(77, 163, 255, 0.14);
+      font-size: 1.4rem;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--white);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .legal-panel {
+      padding: 38px;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: rgba(4, 17, 38, 0.66);
+      box-shadow: var(--shadow);
+    }
+
+    .legal-panel h2 {
+      margin-top: 0;
+      color: var(--white);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+    }
+
+    .legal-panel h3 {
+      margin-top: 32px;
+      margin-bottom: 8px;
+      color: var(--white);
+    }
+
+    .legal-panel p,
+    .legal-panel li {
+      color: var(--muted);
+    }
+
+    .legal-panel ul {
+      padding-left: 22px;
+    }
+
+    .support-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 34px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #1764aa, #0c3971);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+      margin-top: 0;
+      color: var(--white);
+      font-size: 1.6rem;
+    }
+
+    .contact-card p {
+      color: #d8ebff;
+    }
+
+    .contact-card a {
+      width: fit-content;
+      color: var(--white);
+      font-weight: 750;
+      word-break: break-word;
+    }
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 850px) {
+      .grid,
+      .support-box {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .nav-links a:nth-child(1) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .container {
+        width: min(100% - 26px, 1120px);
+      }
+
+      .nav-links a {
+        font-size: 0.86rem;
+      }
+
+      .brand span:last-child {
+        display: none;
+      }
+
+      .legal-panel,
+      .card {
+        padding: 24px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h1>Loan Navigator Privacy Policy</h1>
+  <header>
+    <nav class="container">
+      <a class="brand" href="#home">
+        <span class="brand-icon">🧭</span>
+        <span>Loan Navigator</span>
+      </a>
 
-  <p>
-    Loan Navigator respects your privacy. This page explains how information is
-    handled when you use the Loan Navigator mobile application.
-  </p>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#privacy">Privacy</a>
+        <a href="#support">Support</a>
+      </div>
+    </nav>
+  </header>
 
-  <h2>Information We Collect</h2>
-  <p>
-    Loan Navigator may collect information you voluntarily enter into the app,
-    such as loan amounts, interest rates, payment information, and debt details.
-  </p>
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="eyebrow">Smarter financial planning</span>
 
-  <h2>How Information Is Used</h2>
-  <p>
-    Information entered into the app is used to provide calculations, estimates,
-    repayment plans, and related app functionality.
-  </p>
+        <h1>Navigate your loans with confidence.</h1>
 
-  <h2>Advertising</h2>
-  <p>
-    Loan Navigator may display advertisements provided by third-party advertising
-    services. Those services may collect device or usage information according to
-    their own privacy policies.
-  </p>
+        <p>
+          Loan Navigator provides easy-to-use tools for estimating payments,
+          comparing scenarios, planning faster payoffs, and tracking debt—all
+          from one convenient app.
+        </p>
 
-  <h2>Data Security</h2>
-  <p>
-    Reasonable measures are used to protect information associated with the app.
-    However, no method of electronic storage or transmission is completely secure.
-  </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#features">
+            Explore Features
+          </a>
 
-  <h2>Children's Privacy</h2>
-  <p>
-    Loan Navigator is not intended for children under the age of 13.
-  </p>
+          <a class="button button-secondary" href="#privacy">
+            View Privacy Policy
+          </a>
+        </div>
+      </div>
+    </section>
 
-  <h2>Changes to This Policy</h2>
-  <p>
-    This Privacy Policy may be updated from time to time. Any updates will be
-    posted on this page.
-  </p>
+    <section id="features">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Tools built for real financial decisions</h2>
+          <p>
+            Explore different repayment strategies and better understand how
+            changes to your loan or debt plan may affect your financial future.
+          </p>
+        </div>
 
-  <h2>Contact</h2>
-  <p>
-    For privacy-related questions, contact DS Apps &amp; Products.
-  </p>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon">🏠</div>
+            <h3>Loan Calculators</h3>
+            <p>
+              Estimate payments for home, auto, personal, and student loans
+              using straightforward inputs.
+            </p>
+          </article>
 
-  <p>Last updated: August 4, 2026</p>
+          <article class="card">
+            <div class="card-icon">📉</div>
+            <h3>Faster Payoff Planning</h3>
+            <p>
+              See how additional monthly payments or lump-sum payments may
+              reduce interest and shorten repayment time.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">📊</div>
+            <h3>Debt Tracking</h3>
+            <p>
+              Organize loans and credit cards in one place and monitor progress
+              toward your repayment goals.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🔄</div>
+            <h3>Refinance Comparisons</h3>
+            <p>
+              Compare existing and proposed loan terms to better understand
+              potential payment and interest differences.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">💳</div>
+            <h3>Credit Card Planning</h3>
+            <p>
+              Estimate payoff timelines and explore how different payment
+              amounts can affect total interest.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🌙</div>
+            <h3>Light and Dark Modes</h3>
+            <p>
+              Choose the appearance that works best for you and your device.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacy">
+      <div class="container">
+        <article class="legal-panel">
+          <h2>Privacy Policy</h2>
+
+          <p><strong>Last updated: August 4, 2026</strong></p>
+
+          <p>
+            DS Apps &amp; Products respects your privacy. This Privacy Policy
+            explains how information may be handled when you use the Loan
+            Navigator mobile application.
+          </p>
+
+          <h3>Information You Enter</h3>
+
+          <p>
+            Loan Navigator allows you to enter financial information such as
+            loan balances, interest rates, payment amounts, property estimates,
+            and other scenario details. This information is used to perform
+            calculations and provide app functionality.
+          </p>
+
+          <h3>How Information Is Used</h3>
+
+          <p>Information entered into the app may be used to:</p>
+
+          <ul>
+            <li>Calculate estimated payments and payoff schedules.</li>
+            <li>Compare loan and refinancing scenarios.</li>
+            <li>Create repayment plans and debt-tracking summaries.</li>
+            <li>Save scenarios or preferences on your device.</li>
+            <li>Improve app stability, performance, and usability.</li>
+          </ul>
+
+          <h3>Financial Information</h3>
+
+          <p>
+            Loan Navigator is an educational and planning tool. The app does not
+            provide financial, legal, tax, lending, or investment advice.
+            Calculations are estimates and may differ from actual lender terms,
+            taxes, insurance, fees, or other costs.
+          </p>
+
+          <h3>Advertising and Third-Party Services</h3>
+
+          <p>
+            Loan Navigator may use third-party advertising, analytics, or
+            technical services. These providers may process limited device,
+            diagnostic, advertising, or usage information according to their
+            own privacy policies.
+          </p>
+
+          <h3>Data Storage and Security</h3>
+
+          <p>
+            Certain app information may be stored locally on your device.
+            Reasonable efforts are made to protect information, but no method of
+            electronic storage or transmission can be guaranteed to be
+            completely secure.
+          </p>
+
+          <h3>Children’s Privacy</h3>
+
+          <p>
+            Loan Navigator is not directed toward children under 13, and DS Apps
+            &amp; Products does not knowingly collect personal information from
+            children under 13.
+          </p>
+
+          <h3>Your Choices</h3>
+
+          <p>
+            You may remove locally stored app information by deleting saved
+            scenarios, clearing application data, or uninstalling the app,
+            depending on your device and app version.
+          </p>
+
+          <h3>Policy Updates</h3>
+
+          <p>
+            This Privacy Policy may be revised as the app changes. Updates will
+            be posted on this page with a revised effective date.
+          </p>
+
+          <h3>Contact</h3>
+
+          <p>
+            Questions about this Privacy Policy may be sent to DS Apps &amp;
+            Products using the contact information in the Support section below.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="support">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Loan Navigator Support</h2>
+          <p>
+            Need help, found a bug, or have a suggestion? Contact DS Apps &amp;
+            Products and include your device type and a brief description of the
+            issue.
+          </p>
+        </div>
+
+        <div class="support-box">
+          <article class="card">
+            <div class="card-icon">🛠️</div>
+            <h3>Before contacting support</h3>
+            <p>
+              Confirm that you are using the latest version of Loan Navigator.
+              Restarting the app or installing the newest update may resolve
+              certain display or performance issues.
+            </p>
+          </article>
+
+          <aside class="contact-card">
+            <h3>Contact Support</h3>
+            <p>
+              Replace the email address below with the support email you want
+              customers to use.
+            </p>
+
+            <a href="mailto:loannavigation@gmail.com">
+              loannavigation@gmail.com
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 DS Apps &amp; Products. Loan Navigator is provided for educational
+      and informational purposes.
+    </div>
+  </footer>
 </body>
 </html>
